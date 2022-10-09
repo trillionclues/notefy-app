@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import NotesList from './components/NotesList'
 import { nanoid } from 'nanoid'
 import AddNote from './components/AddNotes'
 import Search from './components/Search'
+import Header from './components/Header'
 
 const App = () => {
   const [notes, setNotes] = useState([
@@ -10,18 +11,27 @@ const App = () => {
     //   id: nanoid(),
     //   text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis optio molestiae eaque repellat, itaque cupiditate impedit reiciendis asperiores aliquam omnis praesentiu?',
     //   date: '12/05/2022',
-    // },
-    // {
-    //   id: nanoid(),
-    //   text: 'Visited the Circle Mall today',
-    //   date: '24/07/2022',
-    // },
-    // {
-    //   id: nanoid(),
-    //   text: 'This is my first note',
-    //   date: '13/09/2022',
-    // },
+    // }
   ])
+  // toggle DarkMode
+  const [lightMode, setLightMode] = useState(false)
+  // searchNotes state management
+  const [searchText, setSearchText] = useState('')
+
+  // manage, store and retrieve notes in localStorage
+
+  useEffect(() => {
+    const savedNotes = JSON.parse(localStorage.getItem('notes-data'))
+
+    // check if any notes have been saved
+    if (savedNotes) {
+      setNotes(savedNotes)
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('notes-data', JSON.stringify(notes))
+  }, [notes])
 
   // function that allows child component (AddNotes) to update state that lives in the parent component
   const addNote = (text) => {
@@ -31,7 +41,16 @@ const App = () => {
     const newNote = {
       id: nanoid(),
       text: text,
-      date: date.toLocaleDateString(),
+      date: date.toLocaleDateString('en-US', {
+        // weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      }),
+      // date: date.toLocaleTimeString('en-US', {
+      //   hour: '2-digit',
+      //   minute: '2-digit',
+      // }),
     }
 
     // new array that adds existing notes and adds new note to end of array
@@ -51,10 +70,18 @@ const App = () => {
   }
 
   return (
-    <div className='container'>
-      <AddNote handleAddNote={addNote} />
-      <Search />
-      <NotesList notes={notes} handleDeleteNote={deleteNote} />
+    <div className={`${lightMode && `light-mode`}`}>
+      <div className='container'>
+        <Header handleToggleDarkMode={setLightMode} />
+        <AddNote handleAddNote={addNote} />
+        <Search handleSearchNotes={setSearchText} />
+        <NotesList
+          notes={notes.filter((note) =>
+            note.text.toLowerCase().includes(searchText)
+          )}
+          handleDeleteNote={deleteNote}
+        />
+      </div>
     </div>
   )
 }

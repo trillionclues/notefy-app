@@ -5,7 +5,7 @@ const AddNote = ({ handleAddNote }) => {
   const [noteText, setNoteText] = useState('')
 
   // check for character limit
-  const characterLimit = 170
+  const characterLimit = 154
 
   // handle textarea value change
   const handleChange = (evt) => {

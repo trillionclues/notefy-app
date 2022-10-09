@@ -4,16 +4,43 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #222;
+  /* background-color: #222; */
   font-family: 'Karla', sans-serif;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+.light-mode {
+  background-color: white;
+  min-height: 100vh;
+}
+
+.light-mode .logo h2,
+.light-mode .moon-toggle {
+  color: black;
+}
+
+h1 {
+  color: white;
+}
+
+body {
+  background-color: #222;
+  min-height: 100vh;
+}
 .container {
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
   padding-right: 35px;
   padding-left: 35px;
+
   /* position: relative; */
 }
 
@@ -21,7 +48,7 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  margin-bottom: 2rem;
+  padding-bottom: 3rem;
 }
 
 .note {
@@ -37,6 +64,14 @@
   justify-content: space-between;
   color: rgb(241, 236, 236);
   white-space: pre-wrap;
+}
+
+.note:hover {
+  border: 1.3px solid #fff;
+}
+
+.note-text {
+  font-size: 0.9rem;
 }
 
 .note-footer {
@@ -142,6 +177,8 @@ small {
   font-size: 1rem;
   color: rgb(233, 233, 233);
   margin-left: 0.5rem;
+  width: 100%;
+  /* padding-right: 13rem; */
 }
 
 .search input:focus {
@@ -151,6 +188,23 @@ small {
 .search-icons {
   color: rgb(233, 233, 233);
   /* margin-right: 1rem; */
+}
+
+.moon-toggle {
+  /* background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  font-size: 1rem;
+  /* color: #fff; */
+  cursor: pointer;
+  color: #ccc;
+  border-radius: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 @media screen and (min-width: 1024px) {
