@@ -5,7 +5,7 @@ const AddNote = ({ handleAddNote }) => {
   const [noteText, setNoteText] = useState('')
 
   // check for character limit
-  const characterLimit = 145
+  const characterLimit = 170
 
   // handle textarea value change
   const handleChange = (evt) => {
@@ -28,16 +28,17 @@ const AddNote = ({ handleAddNote }) => {
 
   return (
     <div className='add new'>
-      <div className='note-header'>
+      {/* <div className='note-header'>
         <textarea id='title' cols='20' rows='2' placeholder='Title'></textarea>
         <BsPin />
-      </div>
+      </div> */}
       <textarea
-        cols='10'
-        rows='3'
+        cols='8'
+        rows='2'
         placeholder='Take a note...'
         value={noteText}
         onChange={handleChange}
+        onClick={handleChange}
       ></textarea>
       <div className='addnote-footer'>
         <small>{characterLimit - noteText.length} Remaining</small>

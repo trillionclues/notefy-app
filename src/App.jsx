@@ -2,25 +2,25 @@ import { useState } from 'react'
 import NotesList from './components/NotesList'
 import { nanoid } from 'nanoid'
 import AddNote from './components/AddNotes'
+import Search from './components/Search'
 
 const App = () => {
   const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis optio molestiae eaque repellat, itaque cupiditate impedit reiciendis asperiores aliquam omnis praesentiu?',
-      date: '12/05/2022',
-    },
-    {
-      id: nanoid(),
-
-      text: 'Visited the Circle Mall today',
-      date: '24/07/2022',
-    },
-    {
-      id: nanoid(),
-      text: 'This is my first note',
-      date: '13/09/2022',
-    },
+    // {
+    //   id: nanoid(),
+    //   text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis optio molestiae eaque repellat, itaque cupiditate impedit reiciendis asperiores aliquam omnis praesentiu?',
+    //   date: '12/05/2022',
+    // },
+    // {
+    //   id: nanoid(),
+    //   text: 'Visited the Circle Mall today',
+    //   date: '24/07/2022',
+    // },
+    // {
+    //   id: nanoid(),
+    //   text: 'This is my first note',
+    //   date: '13/09/2022',
+    // },
   ])
 
   // function that allows child component (AddNotes) to update state that lives in the parent component
@@ -53,6 +53,7 @@ const App = () => {
   return (
     <div className='container'>
       <AddNote handleAddNote={addNote} />
+      <Search />
       <NotesList notes={notes} handleDeleteNote={deleteNote} />
     </div>
   )
