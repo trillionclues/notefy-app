@@ -17,13 +17,38 @@
 }
 
 .light-mode {
-  background-color: white;
+  background-color: #ebebeb;
   min-height: 100vh;
 }
 
-.light-mode .logo h2,
 .light-mode .moon-toggle {
-  color: black;
+  color: rgb(173, 168, 168);
+}
+
+.light-mode .logo h2 {
+  color: #222;
+}
+
+h2 {
+  color: #fff;
+  font-family: monospace;
+  font-size: 1.7rem;
+  text-decoration: none;
+  /* text-decoration-color: #f4b400; */
+  position: relative;
+  font-style: italic;
+}
+
+h2::before {
+  content: '';
+  position: absolute;
+  left: 45%;
+  bottom: 3px;
+  width: 83px;
+  height: 10px;
+  transform: skew(-12deg) translateX(-50%);
+  background: rgba(238, 111, 87, 0.5);
+  z-index: -1;
 }
 
 h1 {
@@ -53,8 +78,10 @@ body {
 
 .note {
   background-color: transparent;
+  /* background: ; */
+
   /* margin-bottom: 1rem; */
-  border: 1px solid grey;
+  border: 1px solid rgb(63, 63, 63);
   border-radius: 10px;
   padding: 1rem;
   min-height: 250px;
@@ -66,8 +93,23 @@ body {
   white-space: pre-wrap;
 }
 
+.light-mode .note {
+  background-color: #ced7ef;
+  color: rgb(68, 66, 66);
+  border: none;
+}
+
 .note:hover {
-  border: 1.3px solid #fff;
+  border: none;
+  box-shadow: 5px -5px 8px #181818, -5px 5px 8px #202020;
+  transition: 0.3s ease-in-out;
+}
+
+.light-mode .note:hover {
+  border: 1.3px solid rgb(68, 66, 66);
+  box-shadow: 0 10px 10px -5px;
+  border: none;
+  transition: 0.3s ease-in-out;
 }
 
 .note-text {
@@ -95,6 +137,15 @@ body {
   margin-bottom: 2.5rem;
 }
 
+.light-mode .add {
+  background-color: #a1ceea;
+  border: none;
+}
+
+.light-mode .add > textarea {
+  color: rgb(68, 66, 66);
+}
+
 textarea {
   padding-top: 0.5rem;
   border: none;
@@ -103,6 +154,7 @@ textarea {
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
+  border-radius: 10px;
 }
 
 textarea::placeholder {
@@ -131,12 +183,28 @@ small {
   margin-top: 0;
 }
 
+.light-mode .addnote-footer {
+  color: rgb(68, 66, 66);
+}
+
 .delete-note {
   cursor: pointer;
 }
 
+.delete-note:hover {
+  color: red;
+}
+
 .pin-note {
   cursor: pointer;
+}
+
+.pin-note:hover {
+  color: green;
+}
+
+.light-mode .pin-note:hover {
+  color: black;
 }
 
 .save {
@@ -147,6 +215,15 @@ small {
   color: #fff;
   font-weight: bold;
   cursor: pointer;
+}
+
+.light-mode .save {
+  color: rgb(68, 66, 66);
+}
+
+.light-mode .save:hover {
+  background-color: #ced7ef;
+  color: #222;
 }
 
 .save:hover {
@@ -167,7 +244,12 @@ small {
   padding: 5px;
   margin-bottom: 1.5em;
   /* border: rgb(233, 233, 233); */
-  border: 1px solid rgb(233, 233, 233);
+  border: 1px solid rgb(63, 63, 63);
+}
+
+.light-mode .search {
+  background-color: #ced7ef;
+  border: none;
 }
 
 .search input {
@@ -181,6 +263,11 @@ small {
   /* padding-right: 13rem; */
 }
 
+.light-mode input {
+  color: rgb(68, 66, 66);
+  font-size: 1.2rem;
+}
+
 .search input:focus {
   outline: none;
 }
@@ -190,14 +277,15 @@ small {
   /* margin-right: 1rem; */
 }
 
+.light-mode .search-icons {
+  color: rgb(68, 66, 66);
+}
+
 .moon-toggle {
-  /* background-color: transparent;
-  border: 1px solid #ccc;
-  padding: 8px 12px;
-  font-size: 1rem;
-  /* color: #fff; */
+  background-color: #222;
+  border: none;
+  color: #f4b400;
   cursor: pointer;
-  color: #ccc;
   border-radius: 10px;
 }
 
@@ -207,8 +295,37 @@ small {
   justify-content: space-evenly;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgb(28, 27, 27);
+  color: rgb(233, 233, 233);
+  border-radius: 10px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+footer a {
+  color: #f4b400;
+  text-decoration: none;
+}
+
 @media screen and (min-width: 1024px) {
   .add {
     margin-left: 12rem;
+  }
+}
+/* 
+@media screen and (min-width: 800px) {
+  .add {
+    margin-left: 8rem;
+  }
+} */
+
+@media screen and (min-width: 600px) and (max-width: 800px) {
+  .add {
+    margin-left: 4rem;
   }
 }

@@ -7,7 +7,7 @@ const Header = ({ handleToggleDarkMode }) => {
     <div className='header'>
       <div className='logo'>
         <img src={logo} height='20%' width='30%' />
-        <h2>Notify</h2>
+        <h2>NOTIFY</h2>
       </div>
 
       <BsFillMoonStarsFill

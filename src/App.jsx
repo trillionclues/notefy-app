@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid'
 import AddNote from './components/AddNotes'
 import Search from './components/Search'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 const App = () => {
   const [notes, setNotes] = useState([
@@ -75,12 +76,14 @@ const App = () => {
         <Header handleToggleDarkMode={setLightMode} />
         <AddNote handleAddNote={addNote} />
         <Search handleSearchNotes={setSearchText} />
+        {/* search text input */}
         <NotesList
           notes={notes.filter((note) =>
-            note.text.toLowerCase().includes(searchText)
+            note.text.toLowerCase().includes(searchText.toLowerCase())
           )}
           handleDeleteNote={deleteNote}
         />
+        <Footer />
       </div>
     </div>
   )
