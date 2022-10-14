@@ -33,11 +33,13 @@
 h2 {
   color: #fff;
   font-family: monospace;
+  font-weight: 400;
   font-size: 1.7rem;
   text-decoration: none;
+  letter-spacing: 3px;
   /* text-decoration-color: #f4b400; */
   position: relative;
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 h2::before {
@@ -45,12 +47,24 @@ h2::before {
   position: absolute;
   left: 45%;
   bottom: 3px;
-  width: 83px;
+  width: 102px;
   height: 10px;
-  transform: skew(-12deg) translateX(-50%);
+  transform: skew(-12deg) translateX(-48%);
   background: rgba(238, 111, 87, 0.5);
   z-index: -1;
 }
+
+/* .light-mode h2::after {
+  content: '';
+  position: absolute;
+  left: 45%;
+  bottom: 3px;
+  width: 83px;
+  height: 10px;
+  transform: skew(-12deg) translateX(-50%);
+  background-color: rgb(173, 168, 168);
+  z-index: 5;
+} */
 
 h1 {
   color: white;
@@ -79,9 +93,6 @@ body {
 
 .note {
   background-color: transparent;
-  /* background: ; */
-
-  /* margin-bottom: 1rem; */
   border: 1px solid rgb(63, 63, 63);
   border-radius: 10px;
   padding: 1rem;
@@ -92,35 +103,44 @@ body {
   justify-content: space-between;
   color: rgb(241, 236, 236);
   white-space: pre-wrap;
+  border: none;
+  box-shadow: 5px -5px 8px #181818, -5px 5px 8px #202020;
+  transition: 0.2s ease-in-out;
 }
 
 .light-mode .note {
   background-color: #ced7ef;
   color: rgb(68, 66, 66);
   border: none;
+  border: 1.2px solid rgb(68, 66, 66);
+  box-shadow: 0 10px 10px -5px;
+  border: none;
+  transition: 0.2s ease-in-out;
 }
 
-.note:hover {
+/* .note:hover {
   border: none;
   box-shadow: 5px -5px 8px #181818, -5px 5px 8px #202020;
   transition: 0.3s ease-in-out;
-}
+} */
 
-.light-mode .note:hover {
+/* .light-mode .note:hover {
   border: 1.3px solid rgb(68, 66, 66);
   box-shadow: 0 10px 10px -5px;
   border: none;
   transition: 0.3s ease-in-out;
-}
+} */
 
 .note-text {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  /* font-weight: 400; */
 }
 
 .note-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* flex-direction: row; */
 }
 
 .add {
@@ -307,11 +327,23 @@ footer {
   border-radius: 10px;
   margin-top: 1rem;
   text-align: center;
+  font-family: monospace;
+}
+
+.light-mode footer {
+  background-color: #a1ceea;
+  color: #222;
+  /* font-family: monospace; */
+}
+
+.light-mode footer a {
+  color: grey;
 }
 
 footer a {
   color: #f4b400;
-  text-decoration: none;
+  text-decoration: overline;
+  text-decoration-thickness: 1px;
 }
 
 @media screen and (min-width: 1024px) {

@@ -61,10 +61,11 @@ const App = () => {
 
     // call setNote to re-render after deletion of selected note
     setNotes(newNotes)
+    localStorage.setItem('notes-data', JSON.stringify(newNotes))
   }
 
   return (
-    <div className={`${lightMode && `light-mode`}`}>
+    <div className={`${lightMode || `light-mode`}`}>
       <div className='container'>
         <Header handleToggleDarkMode={setLightMode} />
         <AddNote handleAddNote={addNote} />
