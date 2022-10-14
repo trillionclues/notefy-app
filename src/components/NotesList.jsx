@@ -1,3 +1,4 @@
+import moment from 'moment'
 import Note from './Note'
 
 const NotesList = ({ notes, handleDeleteNote }) => {
@@ -7,8 +8,9 @@ const NotesList = ({ notes, handleDeleteNote }) => {
         <Note
           id={note.id}
           text={note.text}
-          date={note.date}
+          date={moment(note.date).startOf('seconds').fromNow()}
           handleDeleteNote={handleDeleteNote}
+          key={note.id}
         />
       ))}
     </div>

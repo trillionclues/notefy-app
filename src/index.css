@@ -23,6 +23,7 @@
 
 .light-mode .moon-toggle {
   color: rgb(173, 168, 168);
+  background-color: transparent;
 }
 
 .light-mode .logo h2 {

@@ -1,6 +1,7 @@
 import { MdDeleteForever } from 'react-icons/md'
 import { BsPin } from 'react-icons/bs'
 import { useEffect } from 'react'
+import moment from 'moment'
 const hexColors = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
 
 const Note = ({ id, text, date, handleDeleteNote }) => {
