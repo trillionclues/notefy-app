@@ -340,10 +340,19 @@ footer {
   color: grey;
 }
 
-footer a {
-  color: #f4b400;
+.light-mode footer a:hover {
   text-decoration: overline;
   text-decoration-thickness: 1px;
+}
+
+footer a {
+  color: #f4b400;
+}
+
+footer a:hover {
+  text-decoration: overline;
+  text-decoration-thickness: 1px;
+  color: #f4b400;
 }
 
 @media screen and (min-width: 1024px) {

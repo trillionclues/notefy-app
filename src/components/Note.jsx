@@ -1,5 +1,5 @@
 import { MdDeleteForever } from 'react-icons/md'
-import { BsPin } from 'react-icons/bs'
+import { FaRegEdit } from 'react-icons/fa'
 import { useEffect } from 'react'
 import moment from 'moment'
 const hexColors = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
@@ -25,7 +25,7 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
     <div className='note'>
       <span className='note-text'>{text}</span>
       <div className='note-footer'>
-        <BsPin className='pin-note' size='1.1em' />
+        <FaRegEdit className='pin-note' size='1.1em' />
         <small>{date}</small>
         <MdDeleteForever
           className='delete-note'
