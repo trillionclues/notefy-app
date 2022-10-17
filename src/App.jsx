@@ -5,7 +5,8 @@ import AddNote from './components/AddNotes'
 import Search from './components/Search'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import moment from 'moment'
+// import ModalPop from './components/Modal'
+import { Modal, Button } from 'react-bootstrap'
 
 const App = () => {
   const [notes, setNotes] = useState([
@@ -19,9 +20,9 @@ const App = () => {
   const [lightMode, setLightMode] = useState(false)
   // searchNotes state management
   const [searchText, setSearchText] = useState('')
+  const [show, setShow] = useState(false)
 
   // manage, store and retrieve notes in localStorage
-
   useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem('notes-data'))
 
@@ -30,10 +31,6 @@ const App = () => {
       setNotes(savedNotes)
     }
   }, [])
-
-  // useEffect(() => {
-  //   localStorage.setItem('notes-data', JSON.stringify(notes))
-  // }, [notes])
 
   // function that allows child component (AddNotes) to update state that lives in the parent component
   const addNote = (text) => {
@@ -59,27 +56,51 @@ const App = () => {
     // filter out the item in the array with the exact id to be deleted
     const newNotes = notes.filter((note) => note.id !== id)
 
-    // call setNote to re-render after deletion of selected note
+    console.log(id)
+    // call setNote to re-render after deletion of selected  note
     setNotes(newNotes)
     localStorage.setItem('notes-data', JSON.stringify(newNotes))
+    setShow(true)
+    setTimeout(() => {
+      setShow(false)
+    }, 5000)
+  }
+
+  const handleClose = () => {
+    // setShow(false)
+    setShow(false)
   }
 
   return (
-    <div className={`${lightMode || `light-mode`}`}>
-      <div className='container'>
-        <Header handleToggleDarkMode={setLightMode} />
-        <AddNote handleAddNote={addNote} />
-        <Search handleSearchNotes={setSearchText} />
-        {/* search text input */}
-        <NotesList
-          notes={notes.filter((note) =>
-            note.text.toLowerCase().includes(searchText.toLowerCase())
-          )}
-          handleDeleteNote={deleteNote}
-        />
-        <Footer />
+    <>
+      <div id='header-bg' className={`${lightMode || `light-mode`}`}>
+        <div className='container'>
+          <Modal
+            className='modal'
+            show={show}
+            onHide={handleClose}
+            animation={false}
+          >
+            <Modal.Body className='modal-content'>
+              Note Trashed!
+              <Button className='btn' onClick={handleClose}>
+                Undo
+              </Button>
+            </Modal.Body>
+          </Modal>
+          <Header className='header-bg' handleToggleDarkMode={setLightMode} />
+          <AddNote handleAddNote={addNote} />
+          <Search handleSearchNotes={setSearchText} />
+          <NotesList
+            notes={notes.filter((note) =>
+              note.text.toLowerCase().includes(searchText.toLowerCase())
+            )}
+            handleDeleteNote={deleteNote}
+          />
+          <Footer />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

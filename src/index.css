@@ -12,8 +12,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+  /* box-shadow: rgb(0 0 0 / 70%) 0px 0px 5px; */
 }
 
 .light-mode {
@@ -353,6 +354,46 @@ footer a:hover {
   text-decoration: overline;
   text-decoration-thickness: 1px;
   color: #f4b400;
+}
+
+.modal {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  background-color: rgb(28, 27, 27);
+  color: rgb(233, 233, 233);
+  text-align: center;
+  font-family: monospace;
+  padding: 0.5rem 1rem;
+  animation: dropdown 2s both alternate;
+}
+
+@keyframes dropdown {
+  0% {
+    transition: 0.1s ease-in-out;
+  }
+  100% {
+    transition: 0.2s ease-in;
+    top: 88%;
+  }
+}
+
+.modal-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  color: #f4b400;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 2rem;
 }
 
 @media screen and (min-width: 1024px) {
