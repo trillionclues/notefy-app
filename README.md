@@ -11,6 +11,7 @@ Users should be able to:
 - Create and save notes which timestamps to indicate when it was taken
 - Users should be able to delete notes
 - Also, notes can be modified with new date stamps to indicate this
+- Search for notes either in Upper or lower case strings
 - Switch between normal and dark mode
 
 ## Tools/Technologies used
