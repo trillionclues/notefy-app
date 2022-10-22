@@ -1,4 +1,4 @@
-# Notify - Note taking App
+# Notify - Note taking App :page_with_curl:
 
 ## The Project
 This challenge basically was to build out the UI of a regular note taking app and get it looking as close to the the famous Google Keep App as possible.
