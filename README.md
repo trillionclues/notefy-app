@@ -3,6 +3,9 @@
 ## The Project
 This challenge basically was to build out the UI of a regular note taking app and get it looking as close to the the famous Google Keep App as possible.
 
+![Design preview for Notify note taking app](./src/images/notify app.png)
+
+
 Users should be able to:
 
 - Create and save notes which timestamps to indicate when it was taken
