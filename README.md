@@ -3,7 +3,7 @@
 ## The Project
 This challenge basically was to build out the UI of a regular note taking app and get it looking as close to the the famous Google Keep App as possible.
 
-![Design preview for Notify note taking app](./src/images/notify app.png)
+![Design preview for Notify note taking app](./src/images/notify-app-demo.png)
 
 
 Users should be able to:
